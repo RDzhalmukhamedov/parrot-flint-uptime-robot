@@ -8,27 +8,27 @@ export class TasksService {
 
   constructor(private readonly httpService: HttpService) {}
 
-  @Interval(240000)
+  @Interval(120000)
   pingApp() {
     this.httpService.get(process.env.APP_URL!);
-    this.logger.debug('Ping app called');
+    this.logger.log('Ping app called ' + process.env.APP_URL!);
   }
 
-  @Interval(240000)
+  @Interval(120000)
   pingBack() {
     this.httpService.get(process.env.BACK_URL!);
-    this.logger.debug('Ping back called');
+    this.logger.log('Ping back called ' + process.env.BACK_URL!);
   }
 
-  @Interval(240000)
+  @Interval(120000)
   pingRSS() {
     this.httpService.get(process.env.RSS_URL!);
-    this.logger.debug('Ping rss called');
+    this.logger.log('Ping rss called ' + process.env.RSS_URL!);
   }
 
-  @Interval(240000)
+  @Interval(120000)
   pingCrawler() {
     this.httpService.get(process.env.CRAWLER_URL!);
-    this.logger.debug('Ping crawler called');
+    this.logger.log('Ping crawler called ' + process.env.CRAWLER_URL!);
   }
 }
